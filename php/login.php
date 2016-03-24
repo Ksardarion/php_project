@@ -1,14 +1,4 @@
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Авторизація, зачекайте</title>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="./sys/css/normalize.css">
-<link rel="stylesheet" href="./sys/css/style.css">
-</head>
-<body>
 <?php
-echo "<div class='wrapper'>";
 session_start();
 if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} } 
 if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
@@ -48,7 +38,4 @@ if (empty($myrow['password'])) {
        exit ("Ви ввели невірний пароль");
 	}
 }
-echo "</div>";
 ?>
-</body>
-</html>
