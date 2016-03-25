@@ -24,39 +24,43 @@ if (isset($_POST['reg_mail'])) {
     } 
 }
 if (empty($login) or empty($password) or empty($password2) or empty($reg_mail)){
-exit ("Ви повинні заповнити усі поля, їх і так не багато!");
+	exit ("Ви повинні заповнити усі поля, їх і так не багато!");
 }
 if ($password != $password2) {
 	exit ("Введені паролі не збігаються!");
 }
+//some protection for our site :)
 $login = stripslashes($login);
 $login = htmlspecialchars($login);
 $password = stripslashes($password);
 $password = htmlspecialchars($password);
 $login = trim($login);
 $password = trim($password);
-if    (strlen($login) < 3 or strlen($login) > 32) {
-exit    ("Логін повинен складатися не менш ніж з 3 символів, і не більше ніж з 32");
+if (strlen($login) < 3 or strlen($login) > 32) {
+	exit ("Логін повинен складатися не менш ніж з 3 символів, і не більше ніж з 32");
 }
-if    (strlen($password) < 3 or strlen($password) > 32) {
-exit    ("Пароль повинен складатися не менш ніж з 3 символів, і не більше ніж з 32");
+if (strlen($password) < 3 or strlen($password) > 32) {
+	exit ("Пароль повинен складатися не менш ніж з 3 символів, і не більше ніж з 32");
 }
-
+//some protection for user password
 $password = md5($password);
-$password = strrev($password);//+реверс        
+$password = strrev($password);   
 $password = $password."b3p6f";
 
-include ("bd.php");
-$result = mysql_query("SELECT id FROM users WHERE login='$login' LIMIT 1",$db);
-$myrow = mysql_fetch_array($result);
-if (!empty($myrow['id'])) {
-exit ("Такий логін вже зареєстровано в системі");
+include ("db.php");
+//show error if user with this login are exist
+$sql = "SELECT id FROM users WHERE login='$login' LIMIT 1";
+$q = mysqli_query($db,$sql);
+$userToRegErr = mysqli_fetch_array($q);
+if (!empty($userToRegErr['id'])) {
+	exit ("Такий логін вже зареєстровано в системі");
 }
-
-$result2 = mysql_query ("INSERT INTO users (login,password,reg_mail) VALUES('$login','$password','$reg_mail')");
-if ($result2=='TRUE'){
-echo "Ви успішно зареєстровані <a href='index.php'>На головну</a>";
+//all ok. We can create new account
+$sql = "INSERT INTO users (login,password,reg_mail) VALUES('$login','$password','$reg_mail')";
+$q = mysqli_query ($db,$sql);
+if ($q=='TRUE'){
+	echo "Ви успішно зареєстровані <a href='index.php'>На головну</a>";
 } else {
-echo "Сталася якась помилка!";
-     }
+	echo "Сталася якась помилка!";
+}
 ?>
