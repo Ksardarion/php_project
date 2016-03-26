@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+    RewriteCond %{SCRIPT_FILENAME} !-f
+    RewriteRule ^([^/]+)$ public/$1 [L,QSA]
+</IfModule>
