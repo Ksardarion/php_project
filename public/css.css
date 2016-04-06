@@ -119,3 +119,12 @@
 .title p {
   color: #646464;
 }
+
+input[type="submit"] {
+	color: rgba(0, 0, 0, 0.7);
+	margin: 1em auto;
+}
+
+input[type="submit"]:hover {
+	border: 2px solid #ff0000;
+}
