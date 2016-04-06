@@ -83,13 +83,10 @@
 </div>
 <div class="fancy-input">
   <div class="input-container">
-
-    <input type="date" name="bday" placeholder="yyyy.mm.dd" required=""/><br> 
-
-<input type="submit" value="ADD"/
-
-    <label data-placeholder="Birthday" data-placeholder-short="Birthday"><span class="sr-only">Birthday</span></label>
+    <input pattern="\d{4}\.\d{2}\.\d{2}" required="required"/>
+    <label data-placeholder="Birthday" data-placeholder-short="yyyy.mm.dd"><span class="sr-only">Birthday</span></label>
   </div>
+  <input type="submit" value="ADD"/>
 </div>
 </body>
 </html>
