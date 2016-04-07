@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+	display : block;
+	width: 500px;
+	height: 630px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateY(-50%);
+
+	/*background: #333;*/
+	margin-left: -250px;
+
+}
+
+.reg-cont {
+	display : block;
+  width: 500px;
+  height: 330px;
+  position: relative;
+	border: 2px solid rgba(0,0,0,.2);
+}
+
+.reg-cont .fancy-input:first-child {
+	margin-top: 80px;
+}
+
+.fancy-input {
+  display: block;
+  width: 100%;
+  min-width: 200px;
+  max-width: 400px;
+  margin: 1em auto;
+  font-size: 1em;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.reg {
+  bottom: 35px;
+}
+
+.fancy-input .input-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  min-width: 200px;
+  overflow: hidden;
+  background: #fff;
+}
+.fancy-input input {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1em;
+  z-index: 1;
+  font-size: 1em;
+  line-height: 2;
+  outline: 0;
+  background: none;
+  border: 2px solid #969696;
+  -webkit-transition: border-color 0.2s, margin-top 0.2s;
+  transition: border-color 0.2s, margin-top 0.2s;
+}
+.fancy-input input:valid {
+  background: #fff;
+}
+.fancy-input input:not(:empty) + label {
+  display: none;
+}
+.fancy-input input:focus {
+  border-color: #FF0000;
+}
+.fancy-input input:focus:valid {
+  border-color: #3cf;
+}
+.fancy-input input:focus:valid + label {
+  background: #3cf;
+}
+.fancy-input input:focus + label {
+  z-index: 2;
+  height: 100%;
+  width: 40%;
+  right: 0;
+  margin-right: 0;
+  padding-left: 3em;
+  color: white;
+  background: #FF0000;
+}
+.fancy-input input:focus + label:before {
+  content: ' ';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 2.2em solid #fff;
+  border-right: 2.2em solid transparent;
+}
+.fancy-input input:focus + label:after {
+  content: attr(data-placeholder-short);
+}
+.fancy-input label {
+  position: absolute;
+  right: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  margin-right: -100%;
+  line-height: 2.5;
+  padding-left: 1em;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  -webkit-transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+  transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+}
+.fancy-input label:after {
+  content: attr(data-placeholder);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.title {
+  position: relative;
+  z-index: 999;
+  top: 55px;
+  text-align: center;
+  width: 270px;
+  margin: 0 auto;
+  background: #fff;
+}
+.title h1 {
+  text-transform: uppercase;
+}
+.title p {
+  color: #646464;
+}
+
+input[type="submit"] {
+	text-transform: uppercase;
+	display: block;
+	width: 120px;
+	height: 40px;
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  margin-left: -60px;
+	color: rgba(0, 0, 0, 0.7);
+	background: rgba(51, 204, 255, 0.26);
+	border: 1px solid rgba(0,0,0,.3);
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+input[type="submit"]:hover {
+	border: 2px solid #3cf;
+}
+
+input[type="submit"].reg {
+  bottom: 35px;
+}
+
+.hide {
+  animation: hide 0.3s;
+  -webkit-animation: hide 0.3s;
+}
+
+.show {
+  animation: appear 0.3s;
+  -webkit-animation: appear 0.3s;
+}
+
+#signup {
+  font-size: 18px;
+  display: inline-block;
+  width: 99px;
+  padding:0px 5px; 
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+  left: 72%;
+  top: -17px;
+  color: rgba(0,0,0,.60);
+  text-decoration: none;
+  background: #fff;
+  font-style: italic;
+
+
+  /*border: 1px solid rgba(0,0,0,.3);*/
+
+  transition: color .2s;
+  -webkit-transition: color .2s;
+}
+
+#signup:hover {
+  color: rgba(0,0,0,1);
+}
+
+
+@keyframes appear{
+  from {
+    /*height: 0; */
+    opacity: 0;
+  }
+  to {
+    /*height: 40px;*/
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes appear{
+  from {
+    /*height: 0;*/
+    opacity: 0;
+  }
+  to {
+    /*height: 40px;*/
+    opacity: 1;
+  }
+}
+
+@keyframes hide{
+  from {
+    /*height: 40px;*/
+    opacity: 1;
+  }
+  to {
+    /*height: 0;*/
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes hide{
+  from {
+    height: 40px;
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
