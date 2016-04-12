@@ -1,0 +1,10 @@
+DirectoryIndex index.php index.html
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+    RewriteCond %{SCRIPT_FILENAME} !-f
+    RewriteRule ^([^/]+)$ public/$1 [L,QSA]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.*)$ $1.php
+</IfModule>
