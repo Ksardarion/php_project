@@ -1,6 +1,16 @@
+<<<<<<< HEAD
+DirectoryIndex index.php index.html
+=======
+>>>>>>> refs/remotes/origin/master
 <IfModule mod_rewrite.c>
     RewriteEngine on
     RewriteBase /
     RewriteCond %{SCRIPT_FILENAME} !-f
     RewriteRule ^([^/]+)$ public/$1 [L,QSA]
+<<<<<<< HEAD
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.*)$ $1.php
+=======
+>>>>>>> refs/remotes/origin/master
 </IfModule>

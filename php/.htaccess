@@ -1,7 +1,16 @@
+<<<<<<< HEAD
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule ^id([0-9]+)$ /profile.php?id=$1 [L,QSA]
+	RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.*)$ $1.php
+=======
 <IfModule mod_rewrite.c>
     RewriteEngine on
     RewriteRule ^id([0-9]+)$ /profile.php?id=$1 [L,QSA]
 	RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}\.php -f
     RewriteRule ^(.*)$ $1.php
+>>>>>>> refs/remotes/origin/master
 </IfModule>
