@@ -110,7 +110,7 @@ $contact = mysqli_fetch_array($q);
 </div>
 <div class="fancy-input">
   <div class="input-container">
-    <input pattern="\d{4}\.\d{2}\.\d{2}" required="required" maxlength="10" id="date" name="bday" value="<?echo $contact['birthday']?>" />
+    <input pattern="\d{4}-\d{2}-\d{2}" required="required" maxlength="10" id="date" name="bday" value="<?echo $contact['birthday']?>" />
     <label data-placeholder="<?echo $contact['birthday']?>" data-placeholder-short="yyyy.mm.dd"><span class="sr-only">Birthday</span></label>
   </div>
   <input type="submit" value="SAVE"/>
