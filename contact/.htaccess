@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^([0-9]+)/$ viewContact.php?cid=$1 [L,QSA]
+    RewriteRule ^([0-9]+)/edit$ editContact.php?cid=$1 [L,QSA]
+    RewriteRule ^([0-9]+)/delete$ deleteContact.php?cid=$1 [L,QSA]
+</IfModule>

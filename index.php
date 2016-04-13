@@ -7,6 +7,7 @@ include_once ("php/init.php");
 <head>
 	<title>I-24 CM</title>
 	<link rel="stylesheet" href="public/css/reg.css">
+	<link rel="stylesheet" href="public/css/contactList.css">
 	<script src="public/js/reg.js"></script>
 </head>
 
@@ -14,7 +15,7 @@ include_once ("php/init.php");
 <?php
 if (!empty($user_id)) {
 	echo "Hello ".$user_login;
-	echo "<a href='addContact'>Add contact</a>";
+	echo "<a href='/contact/addContact.php'>Add contact</a>";
 	echo "<a href='exit?yes'>LogOut</a>";
 	include_once ("php/contactList.php");
 ?>
