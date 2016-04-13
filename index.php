@@ -51,7 +51,7 @@ if (!empty($user_id)) {
 				<input type="submit" value="login"/>
 			</div>
 		</form>
-		<a href="#" id="signup">registration</a>
+		<a href="#" id="signup">sign up</a>
 	<div>
 <?php } ?>
 </body>

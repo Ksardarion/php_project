@@ -190,25 +190,23 @@ input[type="submit"].reg {
 }
 
 #signup {
-  font-size: 18px;
-  display: inline-block;
-  width: 99px;
-  padding:0px 5px; 
-  height: 30px;
-  line-height: 30px;
-  position: relative;
-  left: 72%;
-  top: -17px;
-  color: rgba(0,0,0,.60);
-  text-decoration: none;
-  background: #fff;
-  font-style: italic;
-
-
-  /*border: 1px solid rgba(0,0,0,.3);*/
-
-  transition: color .2s;
-  -webkit-transition: color .2s;
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    width: 73px;
+    /* padding: 0px 5px; */
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    left: 75%;
+    top: -17px;
+    color: rgba(0,0,0,.60);
+    text-decoration: none;
+    background: #fff;
+    font-style: italic;
+    /* border: 1px solid rgba(0,0,0,.3); */
+    transition: color .2s;
+    -webkit-transition: color .2s;
 }
 
 #signup:hover {
@@ -259,4 +257,9 @@ input[type="submit"].reg {
     opacity: 0;
   }
 }
-
+#pass2:valid {
+  border-color: #FF0000;
+}
+#pass2:valid + label {
+  background-color: red;
+}
