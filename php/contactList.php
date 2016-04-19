@@ -1,53 +1,71 @@
 <?php
 if ($contacts) {
-	// require_once "pnation.php";
-	$sql = "SELECT * FROM `contacts` WHERE `user_id` = '$user_id'";
+   if (isset($_GET['order'])) {
+      $order = $_GET['order'];
+      $sort = $_GET['sort'];
+   } else {
+      $order = $user['order'];
+      $sort = $user['sort'];
+   }
+	require_once "pnation.php";
+	$sql = "SELECT * FROM `contacts` WHERE `user_id` = '$user_id' ORDER BY `$order` ".$sort." LIMIT $start, $ipp";
+   $count_sql = "SELECT * FROM `contacts` WHERE `user_id` = '$user_id'";
 	$q = mysqli_query($db,$sql);
-	$k = mysqli_num_rows($q);
+   $c_q = mysqli_query($db,$count_sql);
+	$k = mysqli_num_rows($c_q);
 ?>
+<div class="wrap">
 <div class="table-users">
-   <div class="header">You have <?echo $k?> contacts</div>
+   <div class="header"><?echo $user_login?>, you have <?echo $k?> contacts</div>
    <table cellspacing="0">
      <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
+      <th><a href="?order=id&amp;sort=ASC">ID</a></th>
+      <th><a href="?order=firs_name&amp;sort=DESC">Name</a></th>
+      <th><a href="?order=email&amp;sort=DESC">Email</a></th>
       <th>Phone</th>
       <th></th>
      </tr>
-   <?php
-	while ($contacts = mysqli_fetch_assoc($q)) {
-?>
-
+      <?php
+	  while ($contacts = mysqli_fetch_array($q)) {
+      ?>
       <tr>
          <td># <?echo $contacts['id']?></td>
          <td><?echo $contacts['firs_name']?> <?echo $contacts['last_name']?></td>
          <td><?echo $contacts['email']?></td>
          <td><?echo $contacts[$contacts['best_phone'].'_phone']?></td>
-<!--          <td><a href='/contact/<?echo $contacts['id']?>/edit'>Edit</a></td> -->
          <td class="last_td">
          <a class="edit" href='/contact/<?echo $contacts['id']?>/edit'></a>
-		 <div class="trash"></div>
+
+		   <div class="trash md-trigger" data-modal="modal-11"></div>
          </td>
       </tr>
-<!-- 		echo $contacts['id']." ";
-		echo $contacts['firs_name']." ";
-		echo $contacts['last_name']." ";
-		echo $contacts[$contacts['best_phone'].'_phone']." ";
-		echo "<a href='/contact/".$contacts['id']."/edit'>Edit</a><br />"; -->
-<?php
-	}
-?>
+      <?}?>
+      <tr>
+         <td><? echo $paginate ?></td>
+      </tr>
    </table>
 </div>
+<div class="btn-cont">
+   <a href="/contact/addContact.php" class="btn-add btn"></a>
+   <div class="btn-snd btn"></div>
+   <div class="btn-set btn"></div>
+   <a href="exit?yes" class="btn-ext btn"></a>
+</div>
+</div>
 <?php
-	// for ($i=0; $i < $ipp; $i++) { 
-	// 	echo $p_conts2[$i]['id']." ";
-	// 	echo $p_conts2[$i]['firs_name']." ";
-	// 	echo $p_conts2[$i]['last_name']." ";
-	// 	echo $p_conts2[$i][$p_conts2[$i]['best_phone'].'_phone']."<br />";
-	// }
-} else {
-	echo "You contact list are empty. Please add contacts";
+
+} else { ?>
+<div class="wrap">
+<div class="table-users">
+   <div class="header">You contact list are empty. Please add contacts</div>
+</div>
+<div class="btn-cont">
+   <a href="/contact/addContact.php" class="btn-add btn"></a>
+   <div class="btn-snd btn"></div>
+   <div class="btn-set btn"></div>
+   <a href="exit?yes" class="btn-ext btn"></a>
+</div>
+</div>
+<?php
 }
 ?>

@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fancy-input {
+  display: block;
+  width: 100%;
+  min-width: 200px;
+  max-width: 400px;
+  margin: 1em auto;
+  font-size: 1em;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.fancy-input .input-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  min-width: 200px;
+  overflow: hidden;
+  background: #fff;
+}
+.fancy-input input {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1em;
+  z-index: 1;
+  font-size: 1em;
+  line-height: 2;
+  outline: 0;
+  background: none;
+  border: 2px solid #969696;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.fancy-input input:valid {
+  background: #fff;
+}
+.fancy-input input:not(:empty) + label {
+  display: none;
+}
+.fancy-input input:focus {
+  border-color: #FF0000;
+}
+.fancy-input input:focus:valid {
+  border-color: #3cf;
+}
+.fancy-input input:focus:valid + label {
+  background: #3cf;
+}
+.fancy-input input:focus + label {
+  z-index: 2;
+  height: 100%;
+  width: 40%;
+  right: 0;
+  margin-right: 0;
+  padding-left: 3em;
+  color: white;
+  background: #FF0000;
+}
+.fancy-input input:focus + label:before {
+  content: ' ';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 2.2em solid #fff;
+  border-right: 2.2em solid transparent;
+}
+.fancy-input input:focus + label:after {
+  content: attr(data-placeholder-short);
+}
+.fancy-input label {
+  position: absolute;
+  right: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  margin-right: -100%;
+  line-height: 2.5;
+  padding-left: 1em;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  -webkit-transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+  transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+}
+.fancy-input label:after {
+  content: attr(data-placeholder);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.title {
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+}
+.title h1 {
+  text-transform: uppercase;
+}
+.title p {
+  color: #646464;
+}
+
+input[type="submit"] {
+	color: rgba(0, 0, 0, 0.7);
+	margin: 1em auto;
+}
+
+input[type="submit"]:hover {
+	border: 2px solid #ff0000;
+}

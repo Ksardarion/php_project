@@ -9,17 +9,29 @@ include_once ("php/init.php");
 	<link rel="stylesheet" href="public/css/reg.css">
 	<link rel="stylesheet" href="public/css/contactList.css">
 	<script src="public/js/reg.js"></script>
+	<script src="public/js/aboutCont.js"> </script>
 </head>
 
 <body>
+
 <?php
 if (!empty($user_id)) {
-	echo "Hello ".$user_login;
-	echo "<a href='/contact/addContact.php'>Add contact</a>";
-	echo "<a href='exit?yes'>LogOut</a>";
+?>
+<link rel="stylesheet" type="text/css" href="public/css/component.css" />
+<?php
 	include_once ("php/contactList.php");
 ?>
-
+<div class="md-modal md-effect-11" id="modal-11">
+	<div class="md-content">
+		<h3>WARNING!!!</h3>
+		<div>
+			<p class="m-p">
+			</p>
+			<button class="md-ok">OK</button>
+			<button class="md-close">CANCEL</button>
+		</div>
+	</div>
+</div>
 <?php
 } else {
 ?>
@@ -54,6 +66,10 @@ if (!empty($user_id)) {
 		<a href="#" id="signup">sign up</a>
 	<div>
 <?php } ?>
+<div class="md-overlay"></div>
+<script src="public/js/classie.js"></script>
+<script src="public/js/modalEffects.js"></script>
+
 </body>
 
 </html>

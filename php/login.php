@@ -60,7 +60,7 @@ $password = strrev($password);
 
 $password = $password."b3p6f";
 
-$remember = $_POST['remember'];
+// $remember = $_POST['remember'];
 
 $sql = "SELECT * FROM users WHERE login='$login' LIMIT 1";
 
@@ -79,11 +79,11 @@ if (empty($userToAuth['password'])) {
     	$_SESSION['user']['login']=$userToAuth['login']; 
 
     	$_SESSION['user']['id']=$userToAuth['id'];
-    	if ($remember) {
-    		$_SESSION['user']['remember'] = true;
-    	} else {
-    		$_SESSION['user']['remember'] = false;
-    	}
+    	// if ($remember) {
+    	// 	$_SESSION['user']['remember'] = true;
+    	// } else {
+    	// 	$_SESSION['user']['remember'] = false;
+    	// }
 
     	echo "Authorization complete! Hello ".$_SESSION['user']['login'];
 
