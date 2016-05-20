@@ -38,10 +38,10 @@ if (empty($user_id)) {
 </div>
 <div class="fancy-input">
   <label class="blab">
-    <input type="radio" class="option-input radio" name="bphone" value="home"/>
+    <input type="radio" class="option-input radio" name="bphone" value="home" checked="checked" />
   </label>
   <div class="input-container">
-    <input min-length=".{3,}" required="required" name="home" />
+    <input  maxlength="12" class="maskPhone" pattern="\d{3}-\d{3}-\d{4}" required="required" name="home" />
     <label class="ilab" data-placeholder="Phone" data-placeholder-short="Home"><span class="sr-only">Phone Home</span></label>
   </div>
 </div>
@@ -50,7 +50,7 @@ if (empty($user_id)) {
     <input type="radio" class="option-input radio" name="bphone" value="work"/>
   </label>
   <div class="input-container">
-    <input pattern=".{3,}" required="required" name="work" />
+    <input  maxlength="12" class="maskPhone" pattern="\d{3}-\d{3}-\d{4}" required="required" name="work" />
     <label class="ilab" data-placeholder="Phone" data-placeholder-short="Work"><span class="sr-only">Work Phone</span></label>
   </div>
 </div>
@@ -59,7 +59,7 @@ if (empty($user_id)) {
     <input type="radio" class="option-input radio" name="bphone" value="cell"/>
   </label>
   <div class="input-container">
-    <input min-length=".{3,}" required="required" name="cell" />
+    <input  maxlength="12" class="maskPhone" pattern="\d{3}-\d{3}-\d{4}" required="required" name="cell" />
     <label class="ilab" data-placeholder="Phone" data-placeholder-short="Cell"><span class="sr-only">Cell phone</span></label>
   </div>
 </div>

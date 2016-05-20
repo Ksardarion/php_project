@@ -5,11 +5,12 @@ include_once ("php/init.php");
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>I-24 CM</title>
 	<link rel="stylesheet" href="public/css/reg.css">
 	<link rel="stylesheet" href="public/css/contactList.css">
 	<script src="public/js/reg.js"></script>
-	<script src="public/js/aboutCont.js"> </script>
+	<script src="public/js/sess.js"></script>
 </head>
 
 <body>

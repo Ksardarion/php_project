@@ -9,8 +9,8 @@ if (isset($_GET['cid']) && $_GET['cid'] != 0) {
   exit("Without cid");
 }
 $sql = "SELECT * FROM `contacts` WHERE `user_id` = '$user_id' AND `id` = '$cid' LIMIT 1";
-$q = mysqli_query($db,$sql);
-$contact = mysqli_fetch_array($q);
+$q = $db->query($sql);
+$contact = $q->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,12 +46,11 @@ $contact = mysqli_fetch_array($q);
 </div>
 <div class="fancy-input">
   <label class="blab">
-    <input type="radio" class="option-input radio" name="bphone" value="home"/>
+    <input type="radio" class="option-input radio" name="bphone" value="home" checked="checked" />
   </label>
   <div class="input-container">
     <input maxlength="12" class="maskPhone" pattern="\d{3}-\d{3}-\d{4}" required="required" name="home" value="<?echo $contact['home_phone']?>" />
     <label class="ilab" data-placeholder="<?echo $contact['home_phone']?>" data-placeholder-short="Home"><span class="sr-only">Home Phone</span></label>
-
   </div>
 </div>
 <div class="fancy-input">

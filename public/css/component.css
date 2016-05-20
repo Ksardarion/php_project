@@ -62,7 +62,7 @@
 /* Content styles */
 .md-content {
 	color: #fff;
-	background: #1D3352;
+	background: #003D67;
 	position: relative;
 	border-radius: 3px;
 	margin: 0 auto;
@@ -77,6 +77,7 @@
 	opacity: 0.8;
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px 3px 0 0;
+	color: #C8E7EA;
 }
 
 .md-content > div {
@@ -89,6 +90,7 @@
 .md-content > div p {
 	margin: 0;
 	padding: 10px 0;
+	color: #9FC4CF;
 }
 
 .md-content > div ul {
@@ -132,7 +134,7 @@
 button {
 	border: none;
 	padding: 0.6em 1.2em;
-	background: #12152D;
+	background: rgba(0, 18, 31, 0.43);
 	color: #fff;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 1em;
@@ -156,45 +158,70 @@ button:hover {
     width: 800px;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 150px;
 }
 .btn {
 	display: block;
 	width: 80px;
     height: 38px;
-	margin: 10px 0;
+	margin: 15px 0;
+	opacity: 0.7;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
 	}
+
+.btn:hover {
+	opacity: 1;
+}
+
+.btn-snd:hover {
+	opacity: 0.4;
+}
+
 .btn-cont {
 	position: absolute;
 	display: block;
 	width: 100px;
 	height: 40px;
 	right: -170px;
-	bottom: 50%;
+	bottom: 42%;
 	transform: translateY(-50%);
 
 }
 .btn-add {
-	background-image:  url(../img/add.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-.btn-ext {
-	background-image:  url(../img/exit.png);
+	background-image:  url(../img/add.svg);
 	background-size: contain;
 	background-repeat: no-repeat;
 }
 .btn-snd {
-	background-image:  url(../img/add.png);
+	background-image:  url(../img/send.svg);
 	background-size: contain;
 	background-repeat: no-repeat;
-}
+	opacity: 0.4;
+	}
 .btn-set {
-	background-image:  url(../img/add.png);
+	background-image:  url(../img/setings.svg);
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-/*
+.btn-ext {
+	background-image:  url(../img/exit.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	}
+.logo {
+    background-image: url(../img/logo.png);
+    position: absolute;
+    display: block;
+    width: 494px;
+    height: 200px;
+    right: 50%;
+    top: -130px;
+    transform: translateX(50%);
+    background-repeat: no-repeat;
+}
+
 
 @media screen and (max-width: 32em) {
 	body { font-size: 75%; }
-}*/
+}

@@ -9,45 +9,48 @@ if ($contacts) {
    }
 	require_once "pnation.php";
 	$sql = "SELECT * FROM `contacts` WHERE `user_id` = '$user_id' ORDER BY `$order` ".$sort." LIMIT $start, $ipp";
+   $q = $db->query($sql);
    $count_sql = "SELECT * FROM `contacts` WHERE `user_id` = '$user_id'";
-	$q = mysqli_query($db,$sql);
-   $c_q = mysqli_query($db,$count_sql);
-	$k = mysqli_num_rows($c_q);
+   $k = $c_q->rowCount($db->query($count_sql));
 ?>
+
 <div class="wrap">
+<a href="/" class="logo"></a>
 <div class="table-users">
-   <div class="header"><?echo $user_login?>, you have <?echo $k?> contacts</div>
+   <div class="header"><?= $user_login?>, you have <?= $k?> contacts</div>
    <table cellspacing="0">
      <tr>
-      <th><a href="?order=id&amp;sort=ASC">ID</a></th>
+      <th><a href="?order=id&amp;sort=DESC">ID</a></th>
       <th><a href="?order=firs_name&amp;sort=DESC">Name</a></th>
       <th><a href="?order=email&amp;sort=DESC">Email</a></th>
       <th>Phone</th>
       <th></th>
+      <th></th>
      </tr>
       <?php
-	  while ($contacts = mysqli_fetch_array($q)) {
+	  while ($contacts = $q->fetch()) {
       ?>
-      <tr>
-         <td># <?echo $contacts['id']?></td>
-         <td><?echo $contacts['firs_name']?> <?echo $contacts['last_name']?></td>
-         <td><?echo $contacts['email']?></td>
-         <td><?echo $contacts[$contacts['best_phone'].'_phone']?></td>
-         <td class="last_td">
-         <a class="edit" href='/contact/<?echo $contacts['id']?>/edit'></a>
-
-		   <div class="trash md-trigger" data-modal="modal-11"></div>
-         </td>
-      </tr>
+         <tr>
+         <a onclick="window.location='/contact/<?= $contacts['id']?>/'">
+            <td># <?= $contacts['id']?></td>
+            <td><?= $contacts['firs_name']?> <?= $contacts['last_name']?></td>
+            <td><?= $contacts['email']?></td>
+            <td><?= $contacts[$contacts['best_phone'].'_phone']?></td>
+		 </a>
+            <td><input type="checkbox" name="cb<?= $contacts['id']?>" id="cb<?= $contacts['id']?>" /><label for="cb<?= $contacts['id']?>" class="cb-label"></label></td>
+            <td class="last_td">
+            <a class="edit" href='/contact/<?= $contacts['id']?>/edit'></a>
+            <div class="trash md-trigger" data-modal="modal-11"></div>
+            </td>
+         </tr>
       <?}?>
-      <tr>
-         <td><? echo $paginate ?></td>
-      </tr>
+
    </table>
+   <? echo $paginate ?>
 </div>
 <div class="btn-cont">
    <a href="/contact/addContact.php" class="btn-add btn"></a>
-   <div class="btn-snd btn"></div>
+   <a href="#" class="btn-snd btn"></a>
    <div class="btn-set btn"></div>
    <a href="exit?yes" class="btn-ext btn"></a>
 </div>

@@ -2,8 +2,6 @@
 
 require_once ("init.php");
 
-
-
 if (isset($_POST['login'])) { 
 
 	$login = $_POST['login']; 
@@ -15,7 +13,6 @@ if (isset($_POST['login'])) {
 	} 
 
 }
-
 if (isset($_POST['password'])) { 
 
 	$password=$_POST['password']; 
@@ -70,13 +67,13 @@ $password = trim($password);
 
 if (strlen($login) < 3 or strlen($login) > 32) {
 
-	exit ("Логін повинен складатися не менш ніж з 3 символів, і не більше ніж з 32");
+	exit ("Login should be long then 3 symbols, and short then 32");
 
 }
 
 if (strlen($password) < 3 or strlen($password) > 32) {
 
-	exit ("Пароль повинен складатися не менш ніж з 3 символів, і не більше ніж з 32");
+	exit ("Password should be long then 3 symbols, and short then 32");
 
 }
 
@@ -94,9 +91,9 @@ $password = $password."b3p6f";
 
 $sql = "SELECT id FROM users WHERE login='$login' LIMIT 1";
 
-$q = mysqli_query($db,$sql);
+$q = $db->query($sql);
 
-$userToRegErr = mysqli_fetch_array($q);
+$userToRegErr = $q->fetch();
 
 if (!empty($userToRegErr['id'])) {
 
@@ -108,12 +105,12 @@ if (!empty($userToRegErr['id'])) {
 
 $sql = "INSERT INTO `users` (`login`,`password`) VALUES('$login','$password')";
 
-$q = mysqli_query ($db,$sql);
+$q = $db->query($sql);
 
 if ($q=='TRUE'){
 	$sql = "SELECT * FROM users WHERE login='$login' LIMIT 1";
-	$q = mysqli_query($db,$sql);
-	$user = mysqli_fetch_array($q);
+	$q = $db->query($sql);
+	$user = $q->fetch();
 	$_SESSION['user']['login']=$login; 
 
     $_SESSION['user']['id']=$user['id'];

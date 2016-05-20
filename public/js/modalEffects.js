@@ -26,6 +26,12 @@ var ModalEffects = (function() {
 			el.addEventListener( 'click', function( ev ) {
 				var content = modal.getElementsByTagName('p')[0];
 				contact = this.parentNode.parentNode.children;
+
+				// len = sessionStorage.getItem("length");
+				// sessionStorage.removeItem(el.id);
+				// len--;
+				// sessionStorage.setItem('length', len);
+
 				content.innerHTML = "Do you wanna delete a "+contact[1].textContent+"\n with email: "+contact[2].textContent+"?";
 				classie.add( modal, 'md-show' );
 				overlay.removeEventListener( 'click', removeModalHandler );

@@ -9,8 +9,9 @@ if ( isset($_GET['page']) ) {
 //all page count
 $stages = 3;
 $count_sql = "SELECT * FROM `contacts` WHERE `user_id` = '$user_id'";
-$c_q = mysqli_query($db,$count_sql);
-$total_pages = mysqli_num_rows($c_q);
+$c_q = $db->query($count_sql);
+// $c_q = mysqli_query($db,$count_sql);
+$total_pages = $c_q->rowCount();
 $lastPage = ceil($total_pages / $ipp);
 $total_pages = $lastPage;
 if($page && $page > 1){

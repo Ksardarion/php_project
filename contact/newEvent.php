@@ -10,13 +10,14 @@ if (empty($user_id)) {
 	<meta charset="UTF-8">
 	<title>Create new event</title>
   <link rel="stylesheet" href="/public/css/addContact.css">
+  <script src="/public/js/printEmail.js"></script>
 </head>
 <body>
 <div class="title">
   <h1>new event</h1>
   <p>Please, enter only real email`s</p>
 </div>
-<form action="/php/add_contact?act=add" method="post">
+<form action="/php/spam.php" method="post">
 <div class="fancy-input">
   <div class="input-container">
     <input id="eCapt" pattern=".{3,}" required="required" name="eCapt" />
@@ -24,6 +25,8 @@ if (empty($user_id)) {
   </div>
 </div>
   <textarea name="eMails" id="eMails" cols="30" rows="10"></textarea>
-</form>
+  <textarea name="eText" id="eText" cols="30" rows="10"></textarea>
+  <input type="submit" value="send" id="send">
+  </form>
 </body>
 </html>

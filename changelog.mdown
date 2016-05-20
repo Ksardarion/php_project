@@ -1,2 +1,6 @@
 [add] - Multilanguage charset support
 [UpDate] - MySQL PDO connection
+[UpDate] - MySQL-connect now in /php/classes/db.class.php
+[UpDate] - Contact editing, deleting and adding will work in Contact class (/php/classes/contact.class.php)
+[add] - New functions for Users (/php/classes/user.class.php)
+[del] - /php/function.php

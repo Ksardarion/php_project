@@ -14,6 +14,19 @@
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
+#eMails, #eText{
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  width: 100%;
+  max-width: 401px;
+  min-width: 401px;
+  overflow: hidden;
+  border: 2px solid #969696;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #545454;
+}
 .fancy-input .input-container {
   position: relative;
   display: block;
@@ -258,4 +271,21 @@ border: 2px solid #969696;
   left: -57px;
   width: 40px;
   height: 40px;
+}
+
+#send {
+    display: block;
+    width: 80px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    z-index: 1;
+    font-size: 1em;
+    line-height: 2;
+    outline: 0;
+    background: none;
+    border: 2px solid #969696;
+    -webkit-transition: border-color 0.2s;
+    transition: border-color 0.2s;
+    text-align: center;
 }

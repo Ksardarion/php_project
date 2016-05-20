@@ -1,7 +1,18 @@
 <?php
 require_once ("settings.php");
-require_once ("db.php");
-require_once ("function.php");
+// require_once ("db.php");
+require_once ("classes/db.class.php");
+try {
+    $db = DB::connect(HOST, DB_NAME, USER, DB_PASS);
+} catch (ExceptionPdoNotExists $e) {
+    @mysqli_connect(HOST, USER, DB_PASS) or die('MySQL server connection are not exist');
+    @mysqli_select_db(DB_NAME) or die('Can`t access to select data base');
+    mysqli_query('SET NAMES "utf8"');
+
+    die($e->getMessage());
+} catch (Exception $e) {
+    die('DB connection error: ' . $e->getMessage());
+}
 
 session_start();
 

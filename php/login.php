@@ -64,13 +64,13 @@ $password = $password."b3p6f";
 
 $sql = "SELECT * FROM users WHERE login='$login' LIMIT 1";
 
-$q = mysqli_query($db,$sql);
+$q = $db->query($sql);
 
-$userToAuth = mysqli_fetch_array($q);
+$userToAuth = $q->fetch();
 
 if (empty($userToAuth['password'])) {
 
-	exit ("Користувача з таким логіном не знайдено");
+	exit ("User with this login not found");
 
 } else {
 
