@@ -1,0 +1,2 @@
+[add] - Multilanguage charset support
+[UpDate] - MySQL PDO connection
