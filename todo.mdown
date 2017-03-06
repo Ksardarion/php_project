@@ -1,2 +1,3 @@
 [add] - Multilanguage
 [update] - Rewrite at OOP
+[update] - Make rPanel a fixed relative to screen
